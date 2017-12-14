@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata.model.dao;
+package matheus.com.br.bloquearnumerochato.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import matheus.com.br.bloqueargentechata.model.util.DatabaseHelper;
-import matheus.com.br.bloqueargentechata.model.entity.Blacklist;
+import matheus.com.br.bloquearnumerochato.model.util.DatabaseHelper;
+import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
 public class BlacklistDAO {
 

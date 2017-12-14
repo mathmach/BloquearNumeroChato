@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata.model.util;
+package matheus.com.br.bloquearnumerochato.model.util;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,7 +11,7 @@ import com.android.internal.telephony.ITelephony;
 
 import java.lang.reflect.Method;
 
-import matheus.com.br.bloqueargentechata.model.dao.BlacklistDAO;
+import matheus.com.br.bloquearnumerochato.model.dao.BlacklistDAO;
 
 public class PhoneStateReceiver extends BroadcastReceiver {
 

@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata.model.entity;
+package matheus.com.br.bloquearnumerochato.model.entity;
 
 public class Blacklist {
 

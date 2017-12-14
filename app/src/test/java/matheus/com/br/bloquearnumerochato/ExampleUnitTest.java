@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata;
+package matheus.com.br.bloquearnumerochato;
 
 import org.junit.Test;
 

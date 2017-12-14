@@ -1,8 +1,7 @@
-package matheus.com.br.bloqueargentechata.model.activity;
+package matheus.com.br.bloquearnumerochato.model.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -21,14 +20,14 @@ import android.view.LayoutInflater;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import matheus.com.br.bloqueargentechata.model.dao.BlacklistDAO;
-import matheus.com.br.bloqueargentechata.model.entity.Blacklist;
+import matheus.com.br.bloquearnumerochato.model.dao.BlacklistDAO;
+import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
 import java.util.List;
 
 
-import matheus.com.br.bloqueargentechata.R;
-import matheus.com.br.bloqueargentechata.model.util.CustomArrayAdapter;
+import matheus.com.br.bloquearnumerochato.R;
+import matheus.com.br.bloquearnumerochato.model.util.CustomArrayAdapter;
 
 public class MainActivity extends AppCompatActivity implements GridView.OnClickListener, GridView.OnItemLongClickListener {
 

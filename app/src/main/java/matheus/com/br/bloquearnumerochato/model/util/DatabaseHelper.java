@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata.model.util;
+package matheus.com.br.bloquearnumerochato.model.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

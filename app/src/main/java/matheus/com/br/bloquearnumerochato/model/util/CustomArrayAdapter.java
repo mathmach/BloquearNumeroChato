@@ -1,4 +1,4 @@
-package matheus.com.br.bloqueargentechata.model.util;
+package matheus.com.br.bloquearnumerochato.model.util;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import matheus.com.br.bloqueargentechata.R;
-import matheus.com.br.bloqueargentechata.model.entity.Blacklist;
+import matheus.com.br.bloquearnumerochato.R;
+import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
 public class CustomArrayAdapter extends ArrayAdapter<String> {
     private LayoutInflater inflater;

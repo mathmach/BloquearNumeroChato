@@ -1,19 +1,18 @@
-package matheus.com.br.bloqueargentechata.model.activity;
+package matheus.com.br.bloquearnumerochato.model.activity;
 
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import matheus.com.br.bloqueargentechata.R;
-import matheus.com.br.bloqueargentechata.model.dao.BlacklistDAO;
-import matheus.com.br.bloqueargentechata.model.entity.Blacklist;
+import matheus.com.br.bloquearnumerochato.R;
+import matheus.com.br.bloquearnumerochato.model.dao.BlacklistDAO;
+import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
 public class AddToBlacklistActivity extends AppCompatActivity implements GridView.OnClickListener {
 
