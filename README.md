@@ -2,8 +2,10 @@
 
 Aplicação Android "Bloqueia Número Chato"
 
-1 - Conceda as permissões para gerenciamento de chamadas
-2 - Adicione o número indesejado através do botão "+"
+1 - Conceda as permissões para gerenciamento de chamadas;
+
+2 - Adicione o número indesejado através do botão "+";
+
 3 - Nunca mais se incomode com telemarketing e afins!
 
 Feito por Matheus Machado Guerzoni Duarte.
