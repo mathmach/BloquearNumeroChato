@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Bloquear Gente Chata</string>
+    <string name="add_number">Adicionar número</string>
+    <string name="phone">Telefone:</string>
+    <string name="clear">Limpar</string>
+    <string name="save">Salvar</string>
+    <string name="telephone">Telefone</string>
+    <string name="black_list">Lista Negra</string>
+    <string name="invalid_number">Número Inválido</string>
+    <string name="telephone_added_blacklist">Telefone adicionado à lista negra!</string>
+    <string name="telephone_already_blacklist">O telefone digitado já existe!</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Deletar</string>
+    <string name="confirm_delete_record">Deseja excluir esse registro?</string>
+    <string name="no_record_found">Nenhum registro!</string>
+</resources>

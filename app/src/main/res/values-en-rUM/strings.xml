@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Block Phone Calls</string>
+    <string name="add_number" translatable="false">Add number</string>
+    <string name="phone">Phone:</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+    <string name="telephone">Phone</string>
+    <string name="black_list">Black List</string>
+    <string name="invalid_number">Invalid Number</string>
+    <string name="telephone_added_blacklist">Phone added to black list!</string>
+    <string name="telephone_already_blacklist">Phone already on black list!</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete_record">Are you want to delete this record?</string>
+    <string name="no_record_found">No record!</string>
+</resources>
