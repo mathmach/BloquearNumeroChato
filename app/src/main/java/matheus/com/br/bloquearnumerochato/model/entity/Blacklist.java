@@ -1,17 +1,10 @@
 package matheus.com.br.bloquearnumerochato.model.entity;
 
-public class Blacklist {
+import matheus.com.br.bloquearnumerochato.model.base.BaseEntity;
 
-    private long id;
+public class Blacklist extends BaseEntity {
+
     private String phoneNumber;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
