@@ -14,23 +14,8 @@ import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
 public class BlacklistDAO {
 
-    private SQLiteDatabase database;
-    private DatabaseHelper dbHelper;
 
-    public BlacklistDAO(Context context) {
-        dbHelper = new DatabaseHelper(context);
-        open();
-    }
-
-    private void open() throws SQLException {
-        database = dbHelper.getWritableDatabase();
-    }
-
-    public void close() {
-        dbHelper.close();
-    }
-
-    public Blacklist create(final Blacklist blackList) {
+    public void create(final Blacklist blackList, final SQLiteDatabase database) {
         final ContentValues values = new ContentValues();
 
         values.put("phone_number", blackList.getPhoneNumber());
@@ -38,10 +23,9 @@ public class BlacklistDAO {
         final long id = database.insert(DatabaseHelper.TABLE_BLACKLIST, null, values);
 
         blackList.setId(id);
-        return blackList;
     }
 
-    public Blacklist getByNumber(String number) {
+    public Blacklist getByNumber(final String number, final SQLiteDatabase database) {
         Blacklist blacklist = null;
 
         final Cursor cursor = database.query(DatabaseHelper.TABLE_BLACKLIST, new String[]{"id", "phone_number"}, "phone_number = ?", new String[]{number}, null, null, null);
@@ -55,11 +39,11 @@ public class BlacklistDAO {
         return blacklist;
     }
 
-    public void delete(final Blacklist blackList) {
+    public void delete(final Blacklist blackList, final SQLiteDatabase database) {
         database.delete(DatabaseHelper.TABLE_BLACKLIST, "phone_number = '" + blackList.getPhoneNumber() + "'", null);
     }
 
-    public List<Blacklist> getAllBlacklist() {
+    public List<Blacklist> getAllBlacklist(final SQLiteDatabase database) {
         final List<Blacklist> blacklistNumbers = new ArrayList<Blacklist>();
 
         final Cursor cursor = database.query(DatabaseHelper.TABLE_BLACKLIST, new String[]{"id", "phone_number"}, null, null, null, null, null);

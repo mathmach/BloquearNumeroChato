@@ -27,14 +27,15 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null)
+        if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
+        }
 
         final Blacklist phoneNumber = records.get(position);
 
         ((TextView) convertView.findViewById(R.id.phone_number_tv)).setText(phoneNumber.getPhoneNumber());
-        convertView.findViewById(R.id.phone_number_tv).setBackgroundColor(position % 2 == 0 ? Color.argb(255,63,81,181) : Color.argb(255,48,63,159));
-        ((TextView) convertView.findViewById(R.id.phone_number_tv)).setTextColor(Color.rgb(255,255,255));
+        convertView.findViewById(R.id.phone_number_tv).setBackgroundColor(position % 2 == 0 ? Color.argb(255, 63, 81, 181) : Color.argb(255, 48, 63, 159));
+        ((TextView) convertView.findViewById(R.id.phone_number_tv)).setTextColor(Color.rgb(255, 255, 255));
 
         return convertView;
     }

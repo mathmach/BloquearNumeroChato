@@ -19,21 +19,17 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import matheus.com.br.bloquearnumerochato.model.dao.BlacklistDAO;
 import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
-
 import java.util.List;
-
-
 import matheus.com.br.bloquearnumerochato.R;
+import matheus.com.br.bloquearnumerochato.model.service.BlacklistService;
 import matheus.com.br.bloquearnumerochato.model.util.CustomArrayAdapter;
 
 public class MainActivity extends AppCompatActivity implements GridView.OnClickListener, GridView.OnItemLongClickListener {
 
     private FloatingActionButton btn_add_blacklist;
     public ListView listview;
-    private BlacklistDAO blackListDao;
+    private BlacklistService blacklistService;
     public static List<Blacklist> blockList;
     private int selectedRecordPosition = -1;
 
@@ -106,8 +102,8 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
     protected void onResume() {
         super.onResume();
 
-        blackListDao = new BlacklistDAO(this);
-        blockList = blackListDao.getAllBlacklist();
+        blacklistService = new BlacklistService(this);
+        blockList = blacklistService.getAllBlacklist();
 
         if (listview.getChildCount() > 1)
             listview.removeFooterView(listview.getChildAt(listview.getChildCount() - 1));
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 try {
-                    blackListDao.delete(blockList.get(selectedRecordPosition));
+                    blacklistService.delete(blockList.get(selectedRecordPosition));
                     blockList.remove(selectedRecordPosition);
                     listview.invalidateViews();
                     selectedRecordPosition = -1;

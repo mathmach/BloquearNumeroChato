@@ -13,4 +13,5 @@
     <string name="delete">Deletar</string>
     <string name="confirm_delete_record">Deseja excluir esse registro?</string>
     <string name="no_record_found">Nenhum registro!</string>
+    <string name="blacklist">Lista negra</string>
 </resources>

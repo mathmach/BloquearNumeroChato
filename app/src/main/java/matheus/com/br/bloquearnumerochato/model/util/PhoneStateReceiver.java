@@ -11,7 +11,9 @@ import com.android.internal.telephony.ITelephony;
 
 import java.lang.reflect.Method;
 
+import matheus.com.br.bloquearnumerochato.R;
 import matheus.com.br.bloquearnumerochato.model.dao.BlacklistDAO;
+import matheus.com.br.bloquearnumerochato.model.service.BlacklistService;
 
 public class PhoneStateReceiver extends BroadcastReceiver {
 
@@ -34,9 +36,9 @@ public class PhoneStateReceiver extends BroadcastReceiver {
                 Bundle bundle = intent.getExtras();
                 String incomingNumber = bundle.getString("incoming_number");
 
-                BlacklistDAO blacklistDao = new BlacklistDAO(context);
-                if (blacklistDao.getByNumber(incomingNumber).getPhoneNumber().equals(incomingNumber)) {
-                    Toast.makeText(context, "Lista negra", Toast.LENGTH_SHORT).show();
+                BlacklistService blacklistService = new BlacklistService(context);
+                if (blacklistService.getByNumber(incomingNumber).getPhoneNumber().equals(incomingNumber)) {
+                    Toast.makeText(context, R.string.blacklist, Toast.LENGTH_SHORT).show();
                     telephonyService.endCall();
                 }
             }
