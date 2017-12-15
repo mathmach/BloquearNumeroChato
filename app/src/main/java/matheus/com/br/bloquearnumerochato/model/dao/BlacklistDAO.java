@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import matheus.com.br.bloquearnumerochato.model.base.dao.BaseBlacklistDAO;
 import matheus.com.br.bloquearnumerochato.model.util.DatabaseHelper;
 import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
-public class BlacklistDAO {
-
+public class BlacklistDAO implements BaseBlacklistDAO {
 
     public void create(final Blacklist blackList, final SQLiteDatabase database) {
         final ContentValues values = new ContentValues();
@@ -40,7 +38,7 @@ public class BlacklistDAO {
     }
 
     public void delete(final Blacklist blackList, final SQLiteDatabase database) {
-        database.delete(DatabaseHelper.TABLE_BLACKLIST, "phone_number = '" + blackList.getPhoneNumber() + "'", null);
+        database.delete(DatabaseHelper.TABLE_BLACKLIST, "phone_number = ?", new String[]{blackList.getPhoneNumber()});
     }
 
     public List<Blacklist> getAllBlacklist(final SQLiteDatabase database) {

@@ -1,4 +1,4 @@
-package matheus.com.br.bloquearnumerochato.model.activity;
+package matheus.com.br.bloquearnumerochato.controller.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

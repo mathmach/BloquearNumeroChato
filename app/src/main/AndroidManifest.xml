@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="matheus.com.br.bloquearnumerochato.model.activity.MainActivity"
+            android:name=".controller.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,7 +29,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="matheus.com.br.bloquearnumerochato.model.activity.AddToBlacklistActivity" android:parentActivityName="matheus.com.br.bloquearnumerochato.model.activity.MainActivity"/>
+        <activity android:name=".controller.activity.AddToBlacklistActivity" android:parentActivityName=".controller.activity.MainActivity"/>
 
     </application>
 
