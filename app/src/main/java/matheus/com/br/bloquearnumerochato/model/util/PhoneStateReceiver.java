@@ -1,5 +1,6 @@
 package matheus.com.br.bloquearnumerochato.model.util;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,8 +18,7 @@ import matheus.com.br.bloquearnumerochato.model.service.BlacklistService;
 
 public class PhoneStateReceiver extends BroadcastReceiver {
 
-    private ITelephony telephonyService;
-
+    @SuppressLint("UnsafeProtectedBroadcastReceiver")
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -32,7 +32,7 @@ public class PhoneStateReceiver extends BroadcastReceiver {
                 Method m = c.getDeclaredMethod("getITelephony");
                 m.setAccessible(true);
 
-                telephonyService = (ITelephony) m.invoke(tm);
+                ITelephony telephonyService = (ITelephony) m.invoke(tm);
                 Bundle bundle = intent.getExtras();
                 String incomingNumber = bundle.getString("incoming_number");
 

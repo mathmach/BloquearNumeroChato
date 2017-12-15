@@ -67,7 +67,7 @@ public class BlacklistService {
     }
 
     public List<Blacklist> getAllBlacklist() {
-        List<Blacklist> blacklistNumbers = new ArrayList<Blacklist>();
+        List<Blacklist> blacklistNumbers = new ArrayList<>();
         BlacklistDAO dao = new BlacklistDAO();
         try {
             open();

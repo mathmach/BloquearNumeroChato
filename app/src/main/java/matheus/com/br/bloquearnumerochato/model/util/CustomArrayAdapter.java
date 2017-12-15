@@ -2,14 +2,13 @@ package matheus.com.br.bloquearnumerochato.model.util;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.List;
-
 import matheus.com.br.bloquearnumerochato.R;
 import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
 
@@ -25,8 +24,9 @@ public class CustomArrayAdapter extends ArrayAdapter<String> {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
         }

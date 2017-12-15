@@ -15,14 +15,11 @@ public class AddToBlacklistActivity extends AppCompatActivity implements GridVie
 
     private EditText etPhone;
     private Button btnReset, btnSubmit;
-    private BlacklistService blacklistService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_number);
-
-        blacklistService = new BlacklistService(this);
 
         etPhone = findViewById(R.id.et_phone);
         btnReset = findViewById(R.id.btn_reset);
@@ -36,9 +33,10 @@ public class AddToBlacklistActivity extends AppCompatActivity implements GridVie
     public void onClick(View v) {
         if (v == btnSubmit) {
             if (etPhone.getText().toString().trim().length() > 0) {
-                final Blacklist phone = new Blacklist();
-
+                BlacklistService blacklistService = new BlacklistService(this);
                 if (blacklistService.getByNumber(etPhone.getText().toString()) == null) {
+                    final Blacklist phone = new Blacklist();
+
                     phone.setPhoneNumber(etPhone.getText().toString());
                     blacklistService.create(phone);
 

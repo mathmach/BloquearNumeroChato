@@ -19,8 +19,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import matheus.com.br.bloquearnumerochato.model.entity.Blacklist;
+
 import java.util.List;
+
 import matheus.com.br.bloquearnumerochato.R;
 import matheus.com.br.bloquearnumerochato.model.service.BlacklistService;
 import matheus.com.br.bloquearnumerochato.model.util.CustomArrayAdapter;
@@ -28,9 +31,9 @@ import matheus.com.br.bloquearnumerochato.model.util.CustomArrayAdapter;
 public class MainActivity extends AppCompatActivity implements GridView.OnClickListener, GridView.OnItemLongClickListener {
 
     private FloatingActionButton btn_add_blacklist;
-    public ListView listview;
+    private ListView listview;
     private BlacklistService blacklistService;
-    public static List<Blacklist> blockList;
+    private static List<Blacklist> blacklist;
     private int selectedRecordPosition = -1;
 
     @Override
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
         setSupportActionBar(toolbar);
 
         checkPermission();
+        blacklistService = new BlacklistService(this);
 
         btn_add_blacklist = findViewById(R.id.btn_add_blacklist);
         btn_add_blacklist.setOnClickListener(this);
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
         final LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.list_item, listview, false);
         listview.addHeaderView(rowView);
+
         listview.setOnItemLongClickListener(this);
     }
 
@@ -59,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
                 if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
                 }
+                break;
+            }
+            case 2: {
+                if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 2);
+                }
+                break;
             }
         }
     }
@@ -68,12 +80,12 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
         }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 2);
         }
     }
 
     private void populateNoRecordMsg() {
-        if (blockList.size() == 0) {
+        if (blacklist.size() == 0) {
             final TextView tv = new TextView(this);
             tv.setPadding(5, 5, 5, 5);
             tv.setTextSize(15);
@@ -102,13 +114,13 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
     protected void onResume() {
         super.onResume();
 
-        blacklistService = new BlacklistService(this);
-        blockList = blacklistService.getAllBlacklist();
+        blacklist = blacklistService.getAllBlacklist();
 
-        if (listview.getChildCount() > 1)
+        if (listview.getChildCount() > 1) {
             listview.removeFooterView(listview.getChildAt(listview.getChildCount() - 1));
+        }
 
-        listview.setAdapter(new CustomArrayAdapter(this, R.layout.list_item, blockList));
+        listview.setAdapter(new CustomArrayAdapter(this, R.layout.list_item, blacklist));
 
         populateNoRecordMsg();
     }
@@ -121,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements GridView.OnClickL
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 try {
-                    blacklistService.delete(blockList.get(selectedRecordPosition));
-                    blockList.remove(selectedRecordPosition);
+                    blacklistService.delete(blacklist.get(selectedRecordPosition));
+                    blacklist.remove(selectedRecordPosition);
                     listview.invalidateViews();
                     selectedRecordPosition = -1;
                     populateNoRecordMsg();
